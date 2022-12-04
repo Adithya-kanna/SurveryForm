@@ -1,0 +1,284 @@
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+    <title>
+            Adithya software survey
+    </title>
+ 
+    <style>
+ 
+        
+        body {
+            background: #ee0979;  
+        background: -webkit-linear-gradient(to right, #ff6a00, #ee0979);  
+background: linear-gradient(to right, #ff6a00, #ee0979); 
+
+          
+            font-family: Aria;
+            text-align: center;
+        }
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+ 
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+ 
+        
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+        .form-control input[type="radio"],
+        .form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        
+        button {
+            background-color: #05c46b;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+        h1{
+            color: white;
+        }
+        #warning {
+            position: absolute;
+            right: 35%;
+            color: red;
+        }
+    </style>
+</head>
+  
+<body>
+    <h1>Adithya Software Survey</h1>
+  
+    
+    <!-- <form id="form" action="thank.html" method="get"> -->
+        <form>
+
+       
+        <div class="form-control">
+            <label for="name" id="label-name">
+                Name
+                <span id="warning"></span>
+            </label>
+           
+            <input type="text"
+                   id="nameid"
+                   placeholder="Enter your name" onkeyup="checkname()"/>
+        </div>
+  
+        <div class="form-control">
+            <label for="graduation" id="label-graduation">
+                Graduation Year
+            </label>
+ 
+            
+            <input type="number"
+                   id="graduationid"
+                   placeholder="Enter your graduation" />
+        </div>
+
+        <div class="form-control">
+            <label>
+                What is the Current Status Right now?
+            </label>
+ 
+            <label for="recommed-1">
+                <input type="radio"
+                       id="job"
+                       value="job"
+                       name="status">job</input>
+            </label>
+                    <label for="recommed-2">
+                <input type="radio"
+                       id="student"
+                       value="student"
+                       name="status">student</input>
+            </label>
+            
+        </div>
+  
+        <div class="form-control">
+            <label> Which Languages do you known?
+            
+            </label>
+            
+            <label for="inp-1">
+                <input type="checkbox"
+                id="c"
+                value="C"
+                       name="inp">C</input></label>
+            <label for="inp-2">
+                <input type="checkbox"
+                id="c++"
+                value="C++"
+                       name="inp">C++</input></label>
+        
+            <label for="inp-4">
+                <input type="checkbox"
+                id="java"
+                value="Java"
+                       name="inp">Java</input></label>
+            
+            <label for="inp-6">
+                <input type="checkbox"
+                id="js"
+                value="JavaScript"
+                       name="inp">JavaScript</input></label>
+            <label for="inp-7">
+                <input type="checkbox"
+                id="react"
+                value="React Js"
+                       name="inp">React</input></label>
+            <label for="inp-7">
+                <input type="checkbox"
+                id="angular"
+                value="AngularJs"
+                       name="inp">Angular</input></label>
+
+
+                       <div class="form-control">
+                        <label for="Experience" id="label-name">
+                        Experience (Years)*
+                        </label>
+             
+                        
+                        <input type="number" min="0"
+                               id="expid"
+                               placeholder="Enter your Experience" />
+                    </div>
+            
+            
+        </div>
+  
+        <div class="form-control">
+            <label for="comment">
+                 Suggestions for me / Feedback
+            </label>
+ 
+            
+            <textarea name="comment" id="commentid"
+                placeholder="Enter your comment here">
+            </textarea>
+        </div>
+  
+        
+ <button type="button" value="submit" onclick="Button()">
+            Submit
+        </button>
+        
+    </form> 
+    <script>
+        // if(document.getElementById("nameid").value!=""){
+        //     console.log("im inside ")
+        
+        function Button(){
+            var status1;
+            var lang1;
+    let namevar = document.getElementById("nameid").value;
+    localStorage.setItem('username',document.getElementById("nameid").value);
+    // document.getElementById("nameid").value = '';
+    let graduationvar = document.getElementById("graduationid").value;
+    document.getElementById("graduationid").value = '';
+    let statusvar = document.getElementsByName("status")
+    // var selected = Array.form(statusvar).find(radio => radio.checked);
+    for (var radio of statusvar)
+    {
+        if (radio.checked == true){
+            status1 = radio.value;
+        }
+        radio.checked = false;
+    }
+    var l1 = document.getElementById('c');
+    var l2 = document.getElementById('c++');
+    var l3 = document.getElementById('java');
+    var l4 = document.getElementById('js');
+    var l5 = document.getElementById('react');
+    var l6 = document.getElementById('angular');
+    let expvar = document.getElementById("expid").value;
+    document.getElementById("expid").value = '';
+    let commentvar = document.getElementById("commentid").value;
+    document.getElementById("commentid").value = '';
+    console.log(namevar);
+    console.log(graduationvar);
+    console.log(status1);
+    if(l1.checked){
+        console.log(l1.value);
+        l1.checked = false;
+    } 
+    if(l2.checked){
+        console.log(l2.value);
+        l2.checked = false;
+    } 
+    if(l3.checked){
+        console.log(l3.value);
+        l3.checked = false;
+    } 
+    if(l4.checked){
+        console.log(l4.value);
+        l4.checked = false;
+    } 
+    if(l5.checked){
+        console.log(l5.value);
+        l5.checked = false;
+    }
+    if(l6.checked){
+        console.log(l6.value);
+        l6.checked = false;
+    }
+    console.log(expvar);
+    console.log(commentvar); 
+            if(/^([a-zA-Z]{3,})$/.test(document.getElementById("nameid").value)){
+                document.getElementById("nameid").value = '';
+    window.location.href = 'thank.html'
+            } else {
+                alert("Enter name");
+            }
+}
+// }
+
+
+        function checkname(){
+                console.log(/^([a-zA-Z]{3,})$/.test(document.getElementById("nameid").value));
+                if(/^([a-zA-Z]{3,})$/.test(document.getElementById("nameid").value)){
+                    document.getElementById("warning").innerHTML = "";
+                } else {
+                    document.getElementById("warning").innerHTML = "Invalid name";
+                }
+                      }
+
+    </script>
+</body>
+</html>
